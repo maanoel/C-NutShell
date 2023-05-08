@@ -1,8 +1,5 @@
-﻿//1- We can use namespace like this in C# 10
+//1- We can use namespace like this in C# 10
 // It is called file-scoped namespace
-
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace ConsoleApp1.Entities;
 
@@ -68,10 +65,48 @@ internal class GeralTests
 
   public void Teste(string teste)
   {
+    //Target-Typed new Expressions
+
     Teste(new("teste"));
 
     StringBuilder sb = new("Olá mundo");
     StringBuilder sb2 = new();
+  }
+
+  public void TestIndices()
+  {
+    //Indices
+    //Permite acessar um array a partir do final usando ^
+
+    char[] vowels = { 'a', 'b', 'c' };
+
+    char charLastElement = vowels[^1];
+    char penultimate = vowels[^2];
+
+    Console.WriteLine(charLastElement);
+    Console.WriteLine(penultimate);
+
+    Index last = ^1; //Index type
+
+  }
+
+  public void TestRanges()
+  {
+    //Permite criar um range do array usando  ..
+
+    char[] vowels = { 'a', 'b', 'c' };
+
+    char[] firstTwo = vowels[..2];
+    char[] lastThree = vowels[2..];
+    char[] middleOne = vowels[2..3];
+    char[] lastTwo = vowels[^2..];
+
+    Console.WriteLine("firstTwo" + firstTwo.ToString());
+    Console.WriteLine("lastThree" + lastThree.ToString());
+    Console.WriteLine("middleOne" + middleOne.ToString());
+    Console.WriteLine("lastTwo" + lastTwo.ToString());
+
+    Range firstTwoRange = ..2; //Range Type
   }
 }
 
