@@ -91,6 +91,19 @@ internal class GeralTests
 
   }
 
+  public void TestSwitchExpression()
+  {
+    int cadNumber = 10;
+
+    string cardNarme = cadNumber switch
+    {
+      12 => "Rei",
+      13 => "Rainha",
+      14 => "isso daqui realmente é top demais"
+    };
+
+  }
+
 
   public void TestDefaultInterfaceMembers()
   {
