@@ -1,4 +1,4 @@
-﻿//1- We can use namespace like this in C# 10
+//1- We can use namespace like this in C# 10
 // It is called file-scoped namespace
 
 namespace ConsoleApp1.Entities;
@@ -88,6 +88,7 @@ internal class GeralTests
     Console.WriteLine(penultimate);
 
     Index last = ^1; //Index type
+<<<<<<< HEAD
   }
 
 
@@ -100,6 +101,9 @@ internal class GeralTests
 
     var teste = ILogger.Prefix;
     var testeobj = ILogger.Teste;
+=======
+
+>>>>>>> 6f5a96e829c7857c5d751d699b425939de807484
   }
 
   public void TestRanges()
@@ -120,6 +124,7 @@ internal class GeralTests
 
     Range firstTwoRange = ..2; //Range Type
   }
+<<<<<<< HEAD
 
   public void NullCoalescing()
   {
@@ -132,6 +137,8 @@ internal class GeralTests
 
     s ??= "carai o C# ta ficando igual perl? kkk";
   }
+=======
+>>>>>>> 6f5a96e829c7857c5d751d699b425939de807484
 }
 
 record struct Point(int x, int y)
