@@ -34,6 +34,7 @@ internal class GeralTests
 
     //Specify a return 
     var sum = int (int x, int y) => x + y;
+    var divide = double (int y, int x) => x / y;
 
     Console.WriteLine(teste());
     Console.WriteLine(sum(1, 2));
@@ -99,7 +100,7 @@ internal class GeralTests
     {
       12 => "Rei",
       13 => "Rainha",
-      14 => "isso daqui realmente é top demais"
+      14 => "isso daqui realmente é top demais",
     };
 
   }
@@ -149,6 +150,25 @@ internal class GeralTests
     s ??= "carai o C# ta ficando igual perl? kkk";
   }
 
+  public void TestTupleAssignVariables()
+  {
+    var (numero, texto) = (10, "OI");
+
+    var numeroTexto = (numero, texto) switch
+    {
+      (10, "OI") => "Número 10 oi",
+      _ => "Valor default" //underscore for discard symbol, it runs like a default switch
+    };
+  }
+
+  public void PositionalPatterns()
+  {
+    string obj = "Olá mundo";
+
+    if (obj is string { Length: 4 }) {
+      Console.Write("Teste de propriedade");
+    }
+  }
 }
 
 record struct Point(int x, int y)
