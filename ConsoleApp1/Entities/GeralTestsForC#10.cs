@@ -5,6 +5,13 @@ namespace ConsoleApp1.Entities;
 
 internal class GeralTests
 {
+  public void LocalMethods(){
+    Console.WriteLine(Cube(2));
+    Console.WriteLine(Cube(2));
+    int Cube (int value) => value * value * value;
+    int Raiz (int value) => value * value;
+  }
+  
   public void NameTuples(){
     decimal number = default;
     var now = DateTime.Now;
