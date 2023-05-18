@@ -5,6 +5,28 @@ namespace ConsoleApp1.Entities;
 
 internal class GeralTests
 {
+  public void TuplesUsing(){
+    var tuple = (10, 20);
+    Console.WriteLine(tuple.Item1);
+    Console.WriteLine(tuple.Item2);
+
+    var namedTuple = (age: 10, name: "Vitor");
+
+    Console.WriteLine(namedTuple.age);
+    Console.WriteLine(namedTuple.name);
+
+
+    (int row, int column) GetPosition() => (10, 12);
+
+    var teste = GetPosition();
+
+    Console.WriteLine(teste.column);
+
+    (int row, int column) = GetPosition();
+
+    Console.WriteLine(row);
+  }
+  
   public void LocalMethods(){
     Console.WriteLine(Cube(2));
     Console.WriteLine(Cube(2));
