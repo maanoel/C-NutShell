@@ -5,6 +5,16 @@ namespace ConsoleApp1.Entities;
 
 internal class GeralTests
 {
+  public void NameTuples(){
+    decimal number = default;
+    var now = DateTime.Now;
+    var tuple = (Hour: now.Hour, Minute: now.Minute, Second: now.Second);
+    Console.WriteLine(DateTime.Now);
+    Console.WriteLine(tuple.Hour);
+    Console.WriteLine(tuple.Minute);
+    Console.WriteLine(tuple.Second);
+  }
+  
   public void TesteWithOperator()
   {
     var a1 = new { A = 1, B = 2, C = 3 };
