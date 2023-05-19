@@ -5,6 +5,18 @@ namespace ConsoleApp1.Entities;
 
 internal class GeralTests
 {
+  public void TheNameOfOperator()
+  {
+    //O nameof evita que ao modificar algo que referencie o nome da variável 
+    // não faça quebrar o projeto posteriormente
+    //
+    string teste = "10";
+
+    string nameOf = nameof(teste);
+
+    Console.WriteLine(nameOf);
+  }
+  
   public void TuplesUsing(){
     var tuple = (10, 20);
     Console.WriteLine(tuple.Item1);
