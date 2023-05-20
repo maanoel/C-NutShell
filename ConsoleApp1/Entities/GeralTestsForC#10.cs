@@ -5,6 +5,15 @@ namespace ConsoleApp1.Entities;
 
 internal class GeralTests
 {
+  
+  public void DoubleSpecialValue()
+  {
+    double infinite = double.PositiveInfinity;
+    double inifiteNegative = double.NegativeInfinity;
+
+    double notNumber = double.NaN;
+  }
+  
   public void uncheckedOperation(){
     int value = int.MinValue;
     int maxValue = --value;
