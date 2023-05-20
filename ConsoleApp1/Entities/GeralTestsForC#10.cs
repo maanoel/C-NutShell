@@ -5,6 +5,16 @@ namespace ConsoleApp1.Entities;
 
 internal class GeralTests
 {
+  public void uncheckedOperation(){
+    int value = int.MinValue;
+    int maxValue = --value;
+
+    Console.WriteLine(maxValue == int.MaxValue);
+
+    //uncheked not throw error in compiler time
+    int valueMin = int.MaxValue;
+    valueMin = unchecked(valueMin + 1);
+  }
   public void TheNameOfOperator()
   {
     //O nameof evita que ao modificar algo que referencie o nome da variável 
