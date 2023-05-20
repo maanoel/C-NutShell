@@ -6,6 +6,11 @@ namespace ConsoleApp1.Entities;
 internal class GeralTests
 {
   
+  public void IsNotANumber()
+  {
+   var teste =  double.IsNaN (0.0 / 0.0);
+  }
+  
   public void DoubleSpecialValue()
   {
     double infinite = double.PositiveInfinity;
