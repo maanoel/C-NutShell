@@ -6,6 +6,13 @@ namespace ConsoleApp1.Entities;
 internal class GeralTests
 {
 
+  
+  public void NameParams(int x, int y)
+  {
+      NameParams(x: 10, y: 20);
+      Console.WriteLine($"{x}-{y}");
+  }
+
   public void ParamsMethods()
   {
     Teste(new int[] {1,2, 3, 4,5});
