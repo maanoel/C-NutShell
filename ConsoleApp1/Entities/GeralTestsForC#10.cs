@@ -7,6 +7,11 @@ internal class GeralTests
 {
 
   
+  public void ExternalAlias()
+  {
+    //extern alias W1;
+  }
+  
   public void NameParams(int x, int y)
   {
       NameParams(x: 10, y: 20);
