@@ -6,6 +6,23 @@ namespace ConsoleApp1.Entities;
 internal class GeralTests
 {
   
+  public void Discard()
+  {
+    //Caveat, if I declare a variable 
+    //_ the discard will no exists because of variable
+
+    void Split(out string first, out string second)
+    {
+        first = "Olá";
+        second = "Então irmão";
+    }
+
+    Split(out string teste, out _);
+
+    Console.WriteLine(teste);
+
+  }
+  
   public void IsNotANumber()
   {
    var teste =  double.IsNaN (0.0 / 0.0);
