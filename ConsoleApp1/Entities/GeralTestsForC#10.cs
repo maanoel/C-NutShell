@@ -5,6 +5,20 @@ namespace ConsoleApp1.Entities;
 
 internal class GeralTests
 {
+
+  public void ParamsMethods()
+  {
+    Teste(new int[] {1,2, 3, 4,5});
+    Teste(1, 2, 3, 4, 5);
+
+    void Teste(params int[] testeParams)
+    {
+        for(int i=0;i<testeParams.Length;i++)
+        {
+            Console.WriteLine(testeParams[i]);
+        }
+    }
+  }
   
   public void Discard()
   {
