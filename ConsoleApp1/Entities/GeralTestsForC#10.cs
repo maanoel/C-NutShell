@@ -6,6 +6,31 @@ namespace ConsoleApp1.Entities;
 internal class GeralTests
 {
 
+   public class Pedido
+    {
+        decimal Valor {get;}
+
+        public Pedido(decimal valor)
+        {
+            Valor = valor;
+        }
+
+        public void Desconstruct(out decimal valor)
+        {
+            valor = Valor;
+        }
+    }
+    
+   public class TestePedido
+    {
+        void Teste()
+        {
+            var pedido = new Pedido(100);
+            pedido.Desconstruct(out decimal valor);
+            Console.WriteLine(valor);
+        }
+    }
+ 
   
   public void ExternalAlias()
   {
