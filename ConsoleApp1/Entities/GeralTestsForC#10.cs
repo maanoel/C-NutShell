@@ -5,6 +5,17 @@ namespace ConsoleApp1.Entities;
 
 internal class GeralTests
 {
+      //index
+      
+      class Sentence
+      {
+          string[] words = "Olá mundo".Split();
+
+          public string this [int wordNum]{
+              get => words[wordNum];
+              set => words[wordNum] = value;
+          }
+      }
 
       class Bunny
       {
