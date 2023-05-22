@@ -6,6 +6,18 @@ namespace ConsoleApp1.Entities;
 internal class GeralTests
 {
 
+      class Bunny
+      {
+         //PARAMETERLESS CONSTRUCTOR
+          public bool LikeCarrots{get; set;}
+          public bool LikeHumans {get; set;}
+
+          void Teste()
+          {
+              var teste = new Bunny {LikeCarrots = true, LikeHumans = true};
+          }
+      }
+   
    public class Pedido
     {
         decimal Valor {get;}
