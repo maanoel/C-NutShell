@@ -5,81 +5,125 @@ namespace ConsoleApp1.Entities;
 
 internal class GeralTests
 {
-      //index
-      
-      class Sentence
-      {
-          string[] words = "Olá mundo".Split();
-
-          public string this [int wordNum]{
-              get => words[wordNum];
-              set => words[wordNum] = value;
-          }
-      }
-
-      class Bunny
-      {
-         //PARAMETERLESS CONSTRUCTOR
-          public bool LikeCarrots{get; set;}
-          public bool LikeHumans {get; set;}
-
-          void Teste()
-          {
-              var teste = new Bunny {LikeCarrots = true, LikeHumans = true};
-          }
-      }
-   
-   public class Pedido
+  //index
+  /// <summary>
+  /// //JUST A TEST CLASS GENERAL TEST C#
+  /// </summary>
+  class BaseClass
+  {
+    public virtual void Foo()
     {
-        decimal Valor {get;}
-
-        public Pedido(decimal valor)
-        {
-            Valor = valor;
-        }
-
-        public void Desconstruct(out decimal valor)
-        {
-            valor = Valor;
-        }
+      Console.WriteLine("From base class");
     }
-    
-   public class TestePedido
+  }
+
+  class Overrider : BaseClass
+  {
+    public override void Foo()
     {
-        void Teste()
-        {
-            var pedido = new Pedido(100);
-            pedido.Desconstruct(out decimal valor);
-            Console.WriteLine(valor);
-        }
+      Console.WriteLine("Override");
     }
- 
-  
+  }
+
+  class Hider : BaseClass
+  {
+    //I can over with new too
+    public new void Foo()
+    {
+      Console.WriteLine("New keyword in method");
+    }
+  }
+
+
+
+  public class Teste
+  {
+    public void Testes()
+    {
+      Overrider over = new Overrider();
+      Hider hider = new Hider();
+
+      BaseClass b1 = over;
+      BaseClass b2 = hider;
+      b1.Foo();
+      b2.Foo();
+    }
+  }
+
+  class Sentence
+  {
+    string[] words = "Olá mundo".Split();
+
+    public string this[int wordNum]
+    {
+      get => words[wordNum];
+      set => words[wordNum] = value;
+    }
+  }
+
+  class Bunny
+  {
+    //PARAMETERLESS CONSTRUCTOR
+    public bool LikeCarrots { get; set; }
+    public bool LikeHumans { get; set; }
+
+    void Teste()
+    {
+      var teste = new Bunny { LikeCarrots = true, LikeHumans = true };
+    }
+  }
+
+  public class Pedido
+  {
+    decimal Valor { get; }
+
+    public Pedido(decimal valor)
+    {
+      Valor = valor;
+    }
+
+    public void Desconstruct(out decimal valor)
+    {
+      valor = Valor;
+    }
+  }
+
+  public class TestePedido
+  {
+    void Teste()
+    {
+      var pedido = new Pedido(100);
+      pedido.Desconstruct(out decimal valor);
+      Console.WriteLine(valor);
+    }
+  }
+
+
   public void ExternalAlias()
   {
     //extern alias W1;
   }
-  
+
   public void NameParams(int x, int y)
   {
-      NameParams(x: 10, y: 20);
-      Console.WriteLine($"{x}-{y}");
+    NameParams(x: 10, y: 20);
+    Console.WriteLine($"{x}-{y}");
   }
 
   public void ParamsMethods()
   {
-    Teste(new int[] {1,2, 3, 4,5});
+    Teste(new int[] { 1, 2, 3, 4, 5 });
     Teste(1, 2, 3, 4, 5);
 
     void Teste(params int[] testeParams)
     {
-        for(int i=0;i<testeParams.Length;i++)
-        {
-            Console.WriteLine(testeParams[i]);
-        }
+      for (int i = 0; i < testeParams.Length; i++)
+      {
+        Console.WriteLine(testeParams[i]);
+      }
     }
   }
-  
+
   public void Discard()
   {
     //Caveat, if I declare a variable 
@@ -87,8 +131,8 @@ internal class GeralTests
 
     void Split(out string first, out string second)
     {
-        first = "Olá";
-        second = "Então irmão";
+      first = "Olá";
+      second = "Então irmão";
     }
 
     Split(out string teste, out _);
@@ -96,12 +140,12 @@ internal class GeralTests
     Console.WriteLine(teste);
 
   }
-  
+
   public void IsNotANumber()
   {
-   var teste =  double.IsNaN (0.0 / 0.0);
+    var teste = double.IsNaN(0.0 / 0.0);
   }
-  
+
   public void DoubleSpecialValue()
   {
     double infinite = double.PositiveInfinity;
@@ -109,8 +153,9 @@ internal class GeralTests
 
     double notNumber = double.NaN;
   }
-  
-  public void uncheckedOperation(){
+
+  public void uncheckedOperation()
+  {
     int value = int.MinValue;
     int maxValue = --value;
 
@@ -131,8 +176,9 @@ internal class GeralTests
 
     Console.WriteLine(nameOf);
   }
-  
-  public void TuplesUsing(){
+
+  public void TuplesUsing()
+  {
     var tuple = (10, 20);
     Console.WriteLine(tuple.Item1);
     Console.WriteLine(tuple.Item2);
@@ -153,15 +199,17 @@ internal class GeralTests
 
     Console.WriteLine(row);
   }
-  
-  public void LocalMethods(){
+
+  public void LocalMethods()
+  {
     Console.WriteLine(Cube(2));
     Console.WriteLine(Cube(2));
-    int Cube (int value) => value * value * value;
-    int Raiz (int value) => value * value;
+    int Cube(int value) => value * value * value;
+    int Raiz(int value) => value * value;
   }
-  
-  public void NameTuples(){
+
+  public void NameTuples()
+  {
     decimal number = default;
     var now = DateTime.Now;
     var tuple = (Hour: now.Hour, Minute: now.Minute, Second: now.Second);
@@ -170,7 +218,7 @@ internal class GeralTests
     Console.WriteLine(tuple.Minute);
     Console.WriteLine(tuple.Second);
   }
-  
+
   public void TesteWithOperator()
   {
     var a1 = new { A = 1, B = 2, C = 3 };
@@ -209,7 +257,7 @@ internal class GeralTests
 
   public void TesteDelegate(Delegate x)
   {
-    
+
   }
 
   public void TestTry()
@@ -226,20 +274,20 @@ internal class GeralTests
     Console.WriteLine(pointWith);
   }
 
-  public void TestTernarie() 
+  public void TestTernarie()
   {
     bool IsLetter(char c) => c is >= 'A' and <= 'z';
   }
 
-  public void Teste(string teste)
-  {
-    //Target-Typed new Expressions
+  //public void Teste(string teste)
+  //{
+  //  //Target-Typed new Expressions
 
-    Teste(new("teste"));
+  //  Teste(new("teste"));
 
-    StringBuilder sb = new("Olá mundo");
-    StringBuilder sb2 = new();
-  }
+  //  StringBuilder sb = new("Olá mundo");
+  //  StringBuilder sb2 = new();
+  //}
 
   public void TestIndices()
   {
@@ -271,7 +319,6 @@ internal class GeralTests
 
   }
 
-
   public void TestDefaultInterfaceMembers()
   {
     //Implements always go throug interface
@@ -282,6 +329,17 @@ internal class GeralTests
     var teste = ILogger.Prefix;
     var testeobj = ILogger.Teste;
 
+  }
+  public void TesteNewInMethod() 
+  {
+    Overrider over = new Overrider();
+    Hider hider = new Hider();
+
+    BaseClass base1 = over;
+    BaseClass base2 = hider;
+
+    base1.Foo();
+    base2.Foo();
   }
 
   public void TestRanges()
@@ -331,7 +389,8 @@ internal class GeralTests
   {
     string obj = "Olá mundo";
 
-    if (obj is string { Length: 4 }) {
+    if (obj is string { Length: 4 })
+    {
       Console.Write("Teste de propriedade");
     }
   }
@@ -339,7 +398,7 @@ internal class GeralTests
 
 record struct Point(int x, int y)
 {
-  
+
 }
 
 interface ILogger

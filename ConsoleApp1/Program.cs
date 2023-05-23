@@ -1,11 +1,11 @@
 ﻿global using System.Text;
 
-using ConsoleApp1.Entities;
-
-new GeralTests().TestRanges();
-
 global using System.Text;
 
 using ConsoleApp1.Entities;
+using ConsoleApp1.Entities;
 
-new GeralTests().TestRanges();
+new GeralTests().TesteNewInMethod();
+
+
+
