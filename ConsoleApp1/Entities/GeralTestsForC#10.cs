@@ -330,7 +330,7 @@ internal class GeralTests
     var testeobj = ILogger.Teste;
 
   }
-  public void TesteNewInMethod() 
+  public void TesteNewInMethod()
   {
     Overrider over = new Overrider();
     Hider hider = new Hider();
@@ -394,7 +394,53 @@ internal class GeralTests
       Console.Write("Teste de propriedade");
     }
   }
+
+  public void TestType()
+  {
+    int teste = 10;
+    object testeobj = "10";
+
+    Console.WriteLine(teste.GetType());
+    Console.WriteLine(testeobj.GetType());
+    Console.WriteLine(typeof(Product).Name);
+  }
+
+  public void Contravariance()
+  {
+    IPushable<Animal> animals = new Stack<Animal>();
+    IPushable<Bear> bears = animals;
+
+    IPoppable<Bear> bearsTwo = new Stack<Bear>();
+    IPoppable<Animal> animalTwo = bearsTwo;
+  }
 }
+
+public interface IPushable<in T>
+{
+  void Push(T obj);
+}
+
+
+public interface IPoppable<out T>
+{
+  T Pop();
+}
+public class Stack<T> : IPushable<T>, IPoppable<T>
+{
+  public void Push(T obj)
+  {
+    
+  }
+
+  public T Pop()
+  {
+    return default;
+  }
+}
+class Animal { }
+class Bear: Animal { }
+class Product { }
+
 
 record struct Point(int x, int y)
 {
