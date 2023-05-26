@@ -413,6 +413,14 @@ internal class GeralTests
     IPoppable<Bear> bearsTwo = new Stack<Bear>();
     IPoppable<Animal> animalTwo = bearsTwo;
   }
+
+  public void Compare()
+  {
+    var teste = Comparer<object>.Default;
+    IComparer<string> stringComparer = teste;
+
+    int testeDois = stringComparer.Compare("teste", "teste");
+  }
 }
 
 public interface IPushable<in T>
