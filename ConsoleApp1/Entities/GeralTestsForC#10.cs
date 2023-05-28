@@ -421,6 +421,18 @@ internal class GeralTests
 
     int testeDois = stringComparer.Compare("teste", "teste");
   }
+
+  public void ExceptionWithoutDeclare()
+  {
+    try
+    {
+      int.TryParse("0", out int teste);
+    }
+    catch
+    {
+      Console.WriteLine("OK");
+    }
+  }
 }
 
 public interface IPushable<in T>
