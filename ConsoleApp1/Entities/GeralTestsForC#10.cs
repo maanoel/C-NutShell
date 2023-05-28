@@ -433,6 +433,15 @@ internal class GeralTests
       Console.WriteLine("OK");
     }
   }
+
+  public void ThrowIfIsNull()
+  {
+
+    //Caveat to test if a value is null
+    var name = "name fo test";
+    ArgumentNullException.ThrowIfNull(name);
+  }
+
 }
 
 public interface IPushable<in T>
