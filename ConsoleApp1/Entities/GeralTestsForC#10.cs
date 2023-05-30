@@ -499,6 +499,11 @@ record Point(int x, int y)
   bool HasSameValuesParameters() {
     return x.Equals(y);
   }
+
+  void TestPoint() {
+    Point p1 = new Point(1, 2);
+    Point p2 = p1 with { y = 1 };
+  }
 }
 
 interface ILogger
