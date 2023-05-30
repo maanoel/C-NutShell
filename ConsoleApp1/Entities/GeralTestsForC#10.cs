@@ -481,7 +481,7 @@ public class Stack<T> : IPushable<T>, IPoppable<T>
 {
   public void Push(T obj)
   {
-    
+
   }
 
   public T Pop()
@@ -490,20 +490,54 @@ public class Stack<T> : IPushable<T>, IPoppable<T>
   }
 }
 class Animal { }
-class Bear: Animal { }
+class Bear : Animal { }
 class Product { }
 
 record Point(int x, int y)
 {
   //When we use parameters the assign occurs automatically
-  bool HasSameValuesParameters() {
+  bool HasSameValuesParameters()
+  {
     return x.Equals(y);
   }
 
-  void TestPoint() {
+  void TestPoint()
+  {
+    //Nondestructive mutation
     Point p1 = new Point(1, 2);
     Point p2 = p1 with { y = 1 };
   }
+}
+
+record PointWithProperty
+{
+  private int _y;
+
+  public int Y
+  {
+    get
+    {
+      return _y;
+    }
+    set
+    {
+      if (double.IsNaN(_y)) throw new ArgumentException("X Cannot b nulled");
+    }
+  }
+
+  public int X
+  {
+    get { return _y; }
+    set
+    {
+      if (double.IsNaN(value)) throw new ArgumentException("Y cannot be null");
+
+      _y = value;
+    }
+  }
+
+  public PointWithProperty(int y, int x) => (Y, X) = (y, x);
+
 }
 
 interface ILogger
