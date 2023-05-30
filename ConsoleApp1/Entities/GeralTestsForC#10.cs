@@ -493,10 +493,12 @@ class Animal { }
 class Bear: Animal { }
 class Product { }
 
-
-record struct Point(int x, int y)
+record Point(int x, int y)
 {
-
+  //When we use parameters the assign occurs automatically
+  bool HasSameValuesParameters() {
+    return x.Equals(y);
+  }
 }
 
 interface ILogger
