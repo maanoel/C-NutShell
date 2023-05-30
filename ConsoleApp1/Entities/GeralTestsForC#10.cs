@@ -442,8 +442,31 @@ internal class GeralTests
     ArgumentNullException.ThrowIfNull(name);
   }
 
+  public void DictionaryTestsInit()
+  {
+    Dictionary<int, string> teste = new Dictionary<int, string>
+    {
+      [3] = "Vitor",
+      [4] = "Mundo"
+    };
+
+    Dictionary<int, string> secondTeste = new Dictionary<int, string>
+    {
+
+        {3, "vitor"},
+        {4, "Teste"}
+    };
+  }
 }
 
+public static class StringHelper
+{
+  public static bool IsCaptalized(this string s)
+  {
+    if (string.IsNullOrEmpty(s)) return false;
+    return Char.IsUpper(s[0]);
+  }
+}
 public interface IPushable<in T>
 {
   void Push(T obj);
