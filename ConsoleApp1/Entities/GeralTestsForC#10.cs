@@ -507,6 +507,16 @@ record Point(int x, int y)
     Point p1 = new Point(1, 2);
     Point p2 = p1 with { y = 1 };
   }
+
+  void TesteDois()
+  {
+    var t = "oi";
+
+    if (t is string { Length: 2 })
+    {
+      
+    }
+  }
 }
 
 record PointWithProperty
