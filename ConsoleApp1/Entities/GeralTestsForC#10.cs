@@ -433,6 +433,11 @@ internal class GeralTests
       Console.WriteLine("OK");
     }
   }
+  
+  [SkipLocalsInit]
+  public void HowToSkipZeroMemory()
+  {
+  }
 
   public void ThrowIfIsNull()
   {
