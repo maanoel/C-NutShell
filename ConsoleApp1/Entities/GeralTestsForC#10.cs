@@ -154,6 +154,13 @@ internal class GeralTests
     double notNumber = double.NaN;
   }
 
+  public void TesteTimeSpan()
+  {
+    // Timespan overload the operators -, +.
+    Console.WriteLine(TimeSpan.FromHours(2.5));
+    Console.WriteLine(TimeSpan.FromMinutes(11.5) - TimeSpan.FromSeconds(10));
+  }
+  
   public void uncheckedOperation()
   {
     int value = int.MinValue;
