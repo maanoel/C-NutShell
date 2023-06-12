@@ -529,7 +529,30 @@ record Point(int x, int y)
       
     }
   }
+
+  void TestStruct()
+  {
+    var p1 = new Point(1,2);
+    var p2 = new Point(1,2);
+
+    //Compare field by field, one by one.
+    Console.WriteLine(p1.Equals(p2));
+
+  }
 }
+
+public struct Point
+{
+    public Point(int x, int y) 
+    {
+        X = x;
+        Y = y;
+    }
+
+    public int X {get; set;}
+    public int Y {get; set;}
+}
+
 
 record PointWithProperty
 {
